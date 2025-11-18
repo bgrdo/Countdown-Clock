@@ -17,7 +17,7 @@
     #countdown-container {
         display: flex;
         justify-content: center;
-        gap: 50px;
+        gap: 10px; /* Espacio reducido */
         margin-top: 40px;
     }
 
@@ -37,6 +37,21 @@
         letter-spacing: 3px;
         color: #777;
     }
+
+    /* ESTILO PARA LOS SEPARADORES DE DOS PUNTOS */
+    .separator {
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+        
+        font-size: 48px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: #333; 
+        
+        line-height: 1; 
+        padding-bottom: 25px; /* Ajuste para centrarlo verticalmente */
+    }
 </style>
 </head>
 
@@ -47,14 +62,17 @@
         <div class="number" id="days">0</div>
         <div class="label">DÍAS</div>
     </div>
+    <div class="separator">:</div>
     <div class="unit">
         <div class="number" id="hours">0</div>
         <div class="label">HORAS</div>
     </div>
+    <div class="separator">:</div>
     <div class="unit">
         <div class="number" id="minutes">0</div>
         <div class="label">MINUTOS</div>
     </div>
+    <div class="separator">:</div>
     <div class="unit">
         <div class="number" id="seconds">0</div>
         <div class="label">SEGUNDOS</div>
@@ -73,6 +91,7 @@
         const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
         const seconds = Math.floor((diff % (1000*60)) / 1000);
 
+        // El JavaScript no necesita cambios, ya que está actualizando solo los números
         document.getElementById("days").textContent = days;
         document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
         document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
